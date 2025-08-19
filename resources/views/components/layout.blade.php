@@ -20,6 +20,7 @@
                     <x-nav-links :active="request()->is('job')" href="/job">Home</x-nav-links>
                     <x-nav-links :active="request()->is('about')" href="/about">About</x-nav-links>
                     <x-nav-links :active="request()->is('contact')" href="/contact">Contact</x-nav-links>
+                    <x-nav-links :active="request()->is('blog')" href="/blog">Blog</x-nav-links>
                 </ul>
             </nav>
         </header>
