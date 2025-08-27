@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
     function index(){
-        $data = Post::all();
+        $data = Post::simplePaginate(10);
 
         return view('post.index', ['posts' => $data]);
     }
@@ -19,12 +19,14 @@ class PostController extends Controller
         return view('post.show', ['post' => $post]);
     }
     function create(){
-        $post = Post::create([
-            'title' => 'My find post',
-            'body' => 'Random content to show some text',
-            'author' => 'someone',
-            'published' => true
-        ]);
+        // $post = Post::create([
+        //     'title' => 'My find post',
+        //     'body' => 'Random content to show some text',
+        //     'author' => 'someone',
+        //     'published' => true
+        // ]);
+
+        Post::factory(50)->create();
 
         return redirect('/blog');
     }
