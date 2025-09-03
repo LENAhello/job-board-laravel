@@ -14,7 +14,7 @@
     </head>
     <body>
         
-        <header>
+        {{-- <header>
             <nav class="bg-linear-to-bl from-slate-700 to-indigo-900">
                 <ul class="flex px-5">
                     <x-nav-links :active="request()->is('job')" href="/job">Home</x-nav-links>
@@ -23,9 +23,9 @@
                     <x-nav-links :active="request()->is('blog')" href="/blog">Blog</x-nav-links>
                 </ul>
             </nav>
-        </header>
+        </header> --}}
                  
-        <main>
+        <main class="w-[90%] mx-auto grid place-items-center">
             {{ $slot }}
         </main>
     </body>

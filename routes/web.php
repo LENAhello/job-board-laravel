@@ -11,13 +11,3 @@ Route::get('/job', [JobController::class, 'index']);
 Route::get('/about', [JobController::class, 'about']);
 Route::get('/contact', [JobController::class, 'contact']);
 
-Route::get('/blog', [PostController::class, 'index']);
-Route::get('/blog/create', [PostController::class, 'create']);
-
-Route::get('/tags', [TagController::class, 'index']);
-Route::get( '/tags/create', [TagController::class, 'create']);
-Route::get( '/tags/manytomany', [TagController::class, 'testManyToMany']);
-
-Route::get('/blog/{id}', [PostController::class, 'show']);
-
-Route::get('/comment/create', [CommentController::class, 'create']);
