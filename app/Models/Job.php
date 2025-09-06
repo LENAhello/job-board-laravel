@@ -4,12 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Job
+class Job extends Model
 {
-    public static function all(){
-        return [
-            ['title' => 'Software Engineer', 'salary' => '$1000'],
-            ['title' => 'Graphic Designer', 'salary' => '$2000']
-        ];
+    protected $fillable = [ 'title', 'company', 'is_remote', 'description', 'category_id' ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
     }
+
 }

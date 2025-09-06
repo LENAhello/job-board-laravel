@@ -14,16 +14,18 @@
     </head>
     <body>
         
-        {{-- <header>
-            <nav class="bg-linear-to-bl from-slate-700 to-indigo-900">
-                <ul class="flex px-5">
-                    <x-nav-links :active="request()->is('job')" href="/job">Home</x-nav-links>
-                    <x-nav-links :active="request()->is('about')" href="/about">About</x-nav-links>
-                    <x-nav-links :active="request()->is('contact')" href="/contact">Contact</x-nav-links>
-                    <x-nav-links :active="request()->is('blog')" href="/blog">Blog</x-nav-links>
+        <header>
+            <nav class="bg-[#5B3751] shadow-md">
+                <ul class="flex space-x-6 px-6 py-3">
+                    <x-nav-links :active="request()->routeIs('jobs.index')" href="{{ route('jobs.index') }}">
+                        All Jobs
+                    </x-nav-links>
+                    <x-nav-links :active="request()->is('myapplication')" href="/myapplication">
+                        My Applications
+                    </x-nav-links>
                 </ul>
             </nav>
-        </header> --}}
+        </header>
                  
         <main class="w-[90%] mx-auto grid place-items-center">
             {{ $slot }}
