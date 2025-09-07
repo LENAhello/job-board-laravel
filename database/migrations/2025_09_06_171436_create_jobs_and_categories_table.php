@@ -17,7 +17,15 @@ return new class extends Migration
             $table->string('company');
             $table->boolean('is_remote')->default(false);
             $table->text('description')->nullable();
+            $table->integer('salary'); 
+            $table->timestamp('posted_at')->nullable();
             $table->foreignId('category_id')->nullable()->constrained('categories')->onDelete('set null');
+            $table->timestamps();
+        });
+
+        Schema::create('categories', function (Blueprint $table) {
+            $table->id();
+            $table->string('name')->unique();
             $table->timestamps();
         });
     }

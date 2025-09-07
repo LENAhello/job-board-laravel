@@ -2,11 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Job extends Model
 {
-    protected $fillable = [ 'title', 'company', 'is_remote', 'description', 'category_id' ];
+    use HasFactory;
+    protected $fillable = [ 'title', 'company', 'is_remote', 'description', 'salary', 'posted_at', 'category_id' ];
 
     public function category()
     {
