@@ -6,7 +6,9 @@
         * maybe in component folder to use in job publisher as well
         * add the other props (category, salary, posted_at)
     --}}
-    
+    <div class="w-full flex items-start">
+        <a href="/" class="border-[#5B3751] border-2 rounded-xl py-2 px-4 mt-2 font-semibold"><span class="text-xl font-extrabold mr-2">&#8592;</span> Back</a>
+    </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full mt-4">
         @foreach($jobs as $job)
         <div class="shadow-md rounded-xl p-6 border-2 border-[#CEABB0] hover:shadow-xl transition duration-200">
@@ -23,4 +25,8 @@
         </div>
         @endforeach
     </div>    
+
+    <div class="my-4">
+        {{ $jobs->links() }}
+    </div>
 </x-layout>

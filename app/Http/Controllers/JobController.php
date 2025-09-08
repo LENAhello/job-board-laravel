@@ -13,8 +13,8 @@ class JobController extends Controller
      */
     public function index()
     {
-        $jobs = Job::all();
-        return view('jobseeker.index', compact('jobs'));
+        $jobs = Job::cursorPaginate(9);
+        return view('jobs.index', compact('jobs'));
     }
 
     /**
