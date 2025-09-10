@@ -42,7 +42,7 @@
         {{$job->description}}
     </div>
 
-    <!-- Apply Button -->
+    <!-- Apply Button Hello -->
     {{-- <div class="mt-6">
         <a href="{{ route('jobs.apply', $job->id) }}"
            class="inline-block px-6 py-3 bg-indigo-600 text-white font-medium rounded-xl shadow hover:bg-indigo-700 transition">
