@@ -22,7 +22,12 @@
             <p class="text-sm text-[#5B3751]/80 leading-relaxed">
                 {{ $job['description'] }}
             </p>
-            <a href="{{ route('jobs.show', $job['id']) }}" class="px-4 py-2 rounded-xl bg-[#CEABB0] text-white font-bold text-center mt-2 self-end">More Details</a>
+            <div class="flex justify-between items-end">
+                <a href="{{ route('jobs.showCategory', $job->category->id)}}" class="px-2 py-1 border-2 border-[#CEABB0]/50 bg-white text-[#CEABB0] text-sm font-semibold rounded-lg text-center">
+                    {{ $job->category->name }}
+                </a>
+                <a href="{{ route('jobs.show', $job['id']) }}" class="px-4 py-2 rounded-xl bg-[#CEABB0] w-[20%] text-white font-bold text-center mt-2 self-end">More Details</a>
+            </div>
         </div>
         @endforeach
     </div>    
