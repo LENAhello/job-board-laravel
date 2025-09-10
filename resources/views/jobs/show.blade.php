@@ -4,6 +4,7 @@
         TODO: 
         * Make clickabla category tag to show all jobs that has the same category
         * Make the same logic for on-site / remote tag
+        * Add apply button if needed and if i have energi for that!!!!
     --}}
 <div class="w-full flex items-start">
     <a href="/jobs" class="rounded-xl py-2 px-4 mt-2 font-semibold"><span class="text-xl font-extrabold mr-2">&#8592;</span> Back</a>
@@ -18,9 +19,9 @@
 
     <!-- Job Meta Info -->
     <div class="flex items-center gap-4 text-sm text-gray-500 mb-4">
-        <span class="px-2 py-1 bg-gray-100 rounded-lg">
+        <a href="{{ $job->is_remote ? route('jobs.remote') : route('jobs.onsite') }}" class="px-2 py-1 bg-gray-100 rounded-lg">
             {{ $job->is_remote ? 'Remote' : 'On-site' }}
-        </span>
+        </a>
         <a href="{{ route('jobs.showCategory', $job->category->id)}}" class="px-2 py-1 bg-blue-100 text-blue-800 rounded-lg">
             Category: {{ $job->category->name }}
         </a>

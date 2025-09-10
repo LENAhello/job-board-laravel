@@ -42,6 +42,20 @@ class JobController extends Controller
         return view('jobs.show', compact('job'));
     }
 
+    public function showRemote()
+    {
+        $jobs = Job::where('is_remote', true)->get();
+        $remoteCount = Job::where('is_remote', true)->count();
+        return view('jobs.remote', compact('jobs', 'remoteCount'));
+    }
+
+    public function showOnsite()
+    {
+        $jobs = Job::where('is_remote', false)->get();
+        $onsiteCount = Job::where('is_remote', true)->count();
+        return view('jobs.onsite', compact('jobs', 'onsiteCount'));
+    }
+
     /**
      * Show the form for editing the specified resource.
      */
