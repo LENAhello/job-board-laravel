@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class CategoryFactory extends Factory
 {
+    //['IT', 'Marketing', 'Finance', 'Design', 'HR', 'Sales', 'Economic']
     /**
      * Define the model's default state.
      *
@@ -17,7 +18,7 @@ class CategoryFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => 'HR',
+            'name' => fake()->randomElement(),
         ];
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Job;
 use Illuminate\Http\Request;
 use function PHPUnit\Framework\returnArgument;
@@ -13,7 +14,7 @@ class JobController extends Controller
      */
     public function index()
     {
-        $jobs = Job::cursorPaginate(9);
+        $jobs = Job::latest()->cursorPaginate(9);
         return view('jobs.index', compact('jobs'));
     }
 
@@ -22,7 +23,8 @@ class JobController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        return view('jobs.create', compact('categories'));
     }
 
     /**
@@ -30,7 +32,21 @@ class JobController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'title'       => 'required|string|max:255',
+            'company'     => 'required|string|max:255',
+            'is_remote'   => 'required|boolean',
+            'description' => 'required|string|min:20',
+            'salary'      => 'nullable|numeric|min:0',
+            'posted_at'   => 'required|date',
+            'category_id' => 'required|exists:categories,id'
+        ]);
+
+        // Save to DB
+        $job = Job::create($validated);
+
+        // Redirect the user with success message
+        return redirect()->route('jobs.show', $job)->with('success', 'Job created successfully!');
     }
 
     /**
@@ -56,6 +72,10 @@ class JobController extends Controller
         return view('jobs.onsite', compact('jobs', 'onsiteCount'));
     }
 
+    public function manage()
+    {
+        return view('jobs.manage');
+    }
     /**
      * Show the form for editing the specified resource.
      */

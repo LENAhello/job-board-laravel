@@ -15,7 +15,7 @@
         
         <div class="flex  w-[80%] justify-between">
             <a href="/jobs" class="bg-[#5B3751] py-2 px-3 rounded-3xl text-[#e0e2dd] font-medium mr-2">I am a Job Seeker</a>
-            <a href="/job/create" class="bg-[#e0e2dd] py-2 px-3 rounded-3xl text-[#5B3751] font-medium">I am a Job Publisher</a>
+            <a href="{{ route('jobs.create') }}" class="bg-[#e0e2dd] py-2 px-3 rounded-3xl text-[#5B3751] font-medium">I am a Job Publisher</a>
         </div>
     </div>
 

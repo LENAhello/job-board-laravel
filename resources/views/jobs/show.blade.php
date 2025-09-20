@@ -2,15 +2,30 @@
 
     {{-- 
         TODO: 
-        * Make clickabla category tag to show all jobs that has the same category
+        * Make clickable category tag to show all jobs that has the same category
         * Make the same logic for on-site / remote tag
         * Add apply button if needed and if i have energi for that!!!!
     --}}
-<div class="w-full flex items-start">
-    <a href="/jobs" class="rounded-xl py-2 px-4 mt-2 font-semibold"><span class="text-xl font-extrabold mr-2">&#8592;</span> Back</a>
-</div>
-<div class="max-w-3xl mx-auto mt-8 bg-white shadow-lg rounded-2xl p-6">
     
+    <div class="w-full flex items-start justify-between">
+        <a href="/jobs" class="rounded-xl py-2 px-4 mt-2 font-semibold"><span class="text-xl font-extrabold mr-2">&#8592;</span> Back</a>
+    </div>
+    @if(session('success'))
+    <div class="mt-2 flex items-center space-x-2 p-4 bg-green-50 border border-green-200 text-green-700 rounded-lg">
+        <!-- Success Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" 
+             fill="none" viewBox="0 0 24 24" 
+             stroke-width="2" stroke="currentColor" 
+             class="w-6 h-6 text-green-600">
+          <path stroke-linecap="round" stroke-linejoin="round" 
+                d="M9 12l2 2l4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <!-- Message -->
+        <span class="font-medium">{{ session('success') }}</span>
+    </div>
+    @endif
+    <div class="max-w-3xl mx-auto mt-8 bg-white shadow-lg rounded-2xl p-6">
+        
     <!-- Job Title + Company -->
     <div class="mb-4">
         <h1 class="text-2xl font-bold text-gray-900">{{ $job->title }}</h1>

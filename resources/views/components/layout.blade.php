@@ -23,6 +23,12 @@
                     <x-nav-links :active="request()->is('myapplication')" href="/myapplication">
                         My Applications
                     </x-nav-links>
+                    <x-nav-links :active="request()->routeIs('jobs.create')" href="{{ route('jobs.create') }}">
+                        Create New Job
+                    </x-nav-links>
+                    <x-nav-links :active="request()->routeIs('jobs.manage')" href="{{ route('jobs.manage') }}">
+                        Manage Jobs
+                    </x-nav-links>
                 </ul>
             </nav>
         </header>
