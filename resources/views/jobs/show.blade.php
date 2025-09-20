@@ -27,9 +27,46 @@
     <div class="max-w-3xl mx-auto mt-8 bg-white shadow-lg rounded-2xl p-6">
         
     <!-- Job Title + Company -->
-    <div class="mb-4">
-        <h1 class="text-2xl font-bold text-gray-900">{{ $job->title }}</h1>
-        <p class="text-lg text-gray-600">{{ $job->company }}</p>
+    <div class="mb-4 flex items-start justify-between">
+        
+        <div>
+            <h1 class="text-2xl font-bold text-gray-900">{{ $job->title }}</h1>
+            <p class="text-lg text-gray-600">{{ $job->company }}</p>
+        </div>
+        <div class="flex space-x-2 mt-1">
+            <!-- Edit Button -->
+            <a href="{{ route('jobs.edit', $job->id) }}"
+               class="inline-flex items-center px-3 py-1.5 bg-white text-blue-600 text-sm font-medium rounded-lg hover:bg-gray-100 shadow-sm">
+                <!-- Heroicon: Pencil -->
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                     fill="none" viewBox="0 0 24 24" 
+                     stroke-width="1.5" stroke="currentColor" 
+                     class="w-4 h-4 mr-1">
+                    <path stroke-linecap="round" stroke-linejoin="round" 
+                          d="M16.862 4.487l1.688-1.688a1.875 1.875 0 112.652 2.652l-1.688 1.688m-2.652-2.652L6.75 15.75V18h2.25l9.112-9.112m-2.652-2.652l2.652 2.652" />
+                </svg>
+                Edit
+            </a>
+    
+            <!-- Delete Button -->
+            <form action="{{ route('jobs.destroy', $job->id) }}" method="POST" 
+                  onsubmit="return confirm('Are you sure you want to delete this job?')">
+                @csrf
+                @method('DELETE')
+                <button type="submit"
+                        class="inline-flex items-center px-3 py-1.5 bg-white text-red-600 text-sm font-medium rounded-lg hover:bg-gray-100 shadow-sm">
+                    <!-- Heroicon: Trash -->
+                    <svg xmlns="http://www.w3.org/2000/svg" 
+                         fill="none" viewBox="0 0 24 24" 
+                         stroke-width="1.5" stroke="currentColor" 
+                         class="w-4 h-4 mr-1">
+                        <path stroke-linecap="round" stroke-linejoin="round" 
+                              d="M6 18L6 6m12 12V6M4 6h16M9 6V4h6v2" />
+                    </svg>
+                    Delete
+                </button>
+            </form>
+        </div>
     </div>
 
     <!-- Job Meta Info -->

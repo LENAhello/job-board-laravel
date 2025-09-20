@@ -14,7 +14,7 @@ class JobController extends Controller
      */
     public function index()
     {
-        $jobs = Job::latest()->cursorPaginate(9);
+        $jobs = Job::cursorPaginate(9);
         return view('jobs.index', compact('jobs'));
     }
 
@@ -81,15 +81,28 @@ class JobController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $job = Job::findOrFail($id);
+        $categories = Category::all();
+        return view('jobs.edit', compact('job', 'categories'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Job $job)
     {
-        //
+        $validated = $request->validate([
+            'title'       => 'required|string|max:255',
+            'company'     => 'required|string|max:255',
+            'is_remote'   => 'required|boolean',
+            'description' => 'required|string|min:20',
+            'salary'      => 'nullable|numeric|min:0',
+            'posted_at'   => 'required|date',
+            'category_id' => 'required|exists:categories,id',
+        ]);
+
+        $job->update($validated);
+        return redirect()->route('jobs.show', $job)->with('success', 'Job updated successfully!');
     }
 
     /**
@@ -97,6 +110,8 @@ class JobController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $job = Job::findOrFail($id);
+        $job->delete();
+        return redirect()->route('jobs.index', $job)->with('success', 'Job deleted successfully!');
     }
 }
