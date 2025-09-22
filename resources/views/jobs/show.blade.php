@@ -54,7 +54,7 @@
                 @csrf
                 @method('DELETE')
                 <button type="submit"
-                        class="inline-flex items-center px-3 py-1.5 bg-white text-red-600 text-sm font-medium rounded-lg hover:bg-gray-100 shadow-sm">
+                        class="inline-flex items-center px-3 py-1.5 cursor-pointer bg-white text-red-600 text-sm font-medium rounded-lg hover:bg-gray-100 shadow-sm">
                     <!-- Heroicon: Trash -->
                     <svg xmlns="http://www.w3.org/2000/svg" 
                          fill="none" viewBox="0 0 24 24" 
