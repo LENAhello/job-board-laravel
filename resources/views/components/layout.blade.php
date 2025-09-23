@@ -13,7 +13,7 @@
       
     </head>
     <body>
-        
+        @auth
         <header>
             <nav class="bg-[#5B3751] shadow-md">
                 <ul class="flex space-x-6 px-6 py-3">
@@ -32,7 +32,7 @@
                 </ul>
             </nav>
         </header>
-                 
+        @endauth
         <main class="w-[90%] mx-auto grid place-items-center">
             {{ $slot }}
         </main>
