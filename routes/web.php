@@ -16,4 +16,5 @@ Route::get('/jobs/manage', [JobController::class, 'manage'])->name('jobs.manage'
 Route::resource('jobs', JobController::class);
 
 Route::get('/register', [AuthController::class, 'signupForm'])->name('auth.signup');
+Route::post('/register', [AuthController::class, 'signup'])->name('auth.signup');
 Route::get('/login', [AuthController::class, 'loginForm'])->name('auth.login');

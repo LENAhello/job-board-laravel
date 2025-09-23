@@ -21,12 +21,17 @@
         <!-- Buttons -->
         <div class="flex flex-col space-y-4">
             <!-- Job Seeker -->
-            <a href="{{ route('auth.signup') }}"
-               class="flex items-center justify-center space-x-2 bg-primary hover:bg-primary/90 text-secondary font-semibold py-3 rounded-xl shadow-md transition duration-300">
-               <svg xmlns="http://www.w3.org/2000/svg" 
-               fill="none" viewBox="0 0 24 24" 
-               stroke-width="1.5" stroke="currentColor" 
-               class="w-5 h-5">
+            <a 
+                @auth 
+                    href="{{ route('jobs.index') }}" 
+                @else
+                    href="{{ route('auth.signup') }}"
+                @endauth 
+                class="flex items-center justify-center space-x-2 bg-primary hover:bg-primary/90 text-secondary font-semibold py-3 rounded-xl shadow-md transition duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                fill="none" viewBox="0 0 24 24" 
+                stroke-width="1.5" stroke="currentColor" 
+                class="w-5 h-5">
                 <path stroke-linecap="round" stroke-linejoin="round" 
                     d="M12 4.5v15m7.5-7.5h-15"/>
                 </svg>
@@ -34,8 +39,14 @@
             </a>
 
             <!-- Job Publisher -->
-            <a href="{{ route('auth.login') }}"
-               class="flex items-center justify-center space-x-2 bg-secondary hover:bg-secondary/80 text-primary font-semibold py-3 rounded-xl shadow-md transition duration-300">
+            <a 
+                @auth 
+                    href="{{ route('jobs.index') }}" 
+                @else
+                    href="{{ route('auth.login') }}"
+                @endauth 
+                class="flex items-center justify-center space-x-2 bg-secondary hover:bg-secondary/80 text-primary font-semibold py-3 rounded-xl shadow-md transition duration-300">
+                
                 <svg xmlns="http://www.w3.org/2000/svg" 
                      fill="none" viewBox="0 0 24 24" 
                      stroke-width="1.5" stroke="currentColor" 

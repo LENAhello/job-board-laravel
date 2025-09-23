@@ -11,7 +11,7 @@
             </h2>
     
             <!-- Form -->
-            <form method="POST" class="space-y-5">
+            <form method="POST" action="{{ route('auth.signup') }}" class="space-y-5">
                 @csrf
     
                 <!-- Name -->
@@ -19,13 +19,25 @@
                     <label class="block text-sm font-medium text-primary/80 mb-1">Full Name</label>
                     <input type="text" name="name" required
                            class="w-full px-4 py-2 rounded-lg bg-white/80 text-gray-900 border border-secondary/30 focus:ring-2 focus:ring-accent focus:outline-none">
+                    @error('name')
+                        <div class="flex items-center justify-start text-red-600 text-sm mt-1">
+                           <x-warning-icon/> 
+                           <p>{{ $message }}</p>
+                       </div>
+                    @enderror
                 </div>
     
                 <!-- Email -->
                 <div>
                     <label class="block text-sm font-medium text-primary/80 mb-1">Email</label>
                     <input type="email" name="email" required
-                           class="w-full px-4 py-2 rounded-lg bg-white/80 text-gray-900 border border-secondary/30 focus:ring-2 focus:ring-accent focus:outline-none">
+                        class="w-full px-4 py-2 rounded-lg bg-white/80 text-gray-900 border border-secondary/30 focus:ring-2 focus:ring-accent focus:outline-none">
+                    @error('email')
+                        <div class="flex items-center justify-start text-red-600 text-sm mt-1">
+                           <x-warning-icon/> 
+                           <p>{{ $message }}</p>
+                        </div>
+                    @enderror
                 </div>
     
                 <!-- Password -->
@@ -33,6 +45,12 @@
                     <label class="block text-sm font-medium text-primary/80 mb-1">Password</label>
                     <input type="password" name="password" required
                            class="w-full px-4 py-2 rounded-lg bg-white/80 text-gray-900 border border-secondary/30 focus:ring-2 focus:ring-accent focus:outline-none">
+                    @error('password')
+                        <div class="flex items-center justify-start text-red-600 text-sm mt-1">
+                           <x-warning-icon/> 
+                           <p>{{ $message }}</p>
+                        </div>
+                    @enderror
                 </div>
     
                 <!-- Confirm Password -->
@@ -40,7 +58,14 @@
                     <label class="block text-sm font-medium text-primary/80 mb-1">Confirm Password</label>
                     <input type="password" name="password_confirmation" required
                            class="w-full px-4 py-2 rounded-lg bg-white/80 text-gray-900 border border-secondary/30 focus:ring-2 focus:ring-accent focus:outline-none">
+                    @error('password_confirmation')
+                        <div class="flex items-center justify-start text-red-600 text-sm mt-1">
+                           <x-warning-icon/> 
+                           <p>{{ $message }}</p>
+                        </div>
+                    @enderror
                 </div>
+
     
                 <!-- Submit -->
                 <button type="submit"
