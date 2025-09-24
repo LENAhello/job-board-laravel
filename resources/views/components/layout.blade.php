@@ -16,20 +16,21 @@
         @auth
         <header>
             <nav class="bg-[#5B3751] shadow-md">
-                <ul class="flex space-x-6 px-6 py-3">
-                    <x-nav-links :active="request()->routeIs('jobs.index')" href="{{ route('jobs.index') }}">
-                        All Jobs
-                    </x-nav-links>
-                    <x-nav-links :active="request()->is('myapplication')" href="/myapplication">
-                        My Applications
-                    </x-nav-links>
-                    <x-nav-links :active="request()->routeIs('jobs.create')" href="{{ route('jobs.create') }}">
-                        Create New Job
-                    </x-nav-links>
-                    <x-nav-links :active="request()->routeIs('jobs.manage')" href="{{ route('jobs.manage') }}">
-                        Manage Jobs
-                    </x-nav-links>
-                </ul>
+                <div class="flex justify-between px-6 py-3">
+                    <div>
+                        <x-nav-links :active="request()->routeIs('jobs.index')" href="{{ route('jobs.index') }}">
+                            All Jobs
+                        </x-nav-links>
+                        <x-nav-links :active="request()->routeIs('jobs.create')" href="{{ route('jobs.create') }}">
+                            Create New Job
+                        </x-nav-links>
+                    </div>
+                    <div>
+                        <a href="{{ route('auth.profile') }}">
+                            profile
+                        </a>
+                    </div>
+                </div>
             </nav>
         </header>
         @endauth

@@ -18,3 +18,6 @@ Route::resource('jobs', JobController::class);
 Route::get('/register', [AuthController::class, 'signupForm'])->name('auth.signup');
 Route::post('/register', [AuthController::class, 'signup'])->name('auth.signup');
 Route::get('/login', [AuthController::class, 'loginForm'])->name('auth.login');
+Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
+Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
+Route::get('/profile', [AuthController::class, 'profile'])->name('auth.profile');
