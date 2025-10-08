@@ -18,6 +18,7 @@ class AuthController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'confirmed'], // confirmed checks password_confirmation
+            'role' => ['required', 'string'], 
         ]);
 
         // Create user
@@ -25,6 +26,7 @@ class AuthController extends Controller
             'name' => $validated['name'],
             'email' => $validated['email'],
             'password' => Hash::make($validated['password']), // hash the password!
+            'role' => $validated['role'],
         ]);
 
         // Optionally log the user in right away

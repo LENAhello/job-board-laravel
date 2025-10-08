@@ -21,3 +21,10 @@ Route::get('/login', [AuthController::class, 'loginForm'])->name('auth.login');
 Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
 Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 Route::get('/profile', [AuthController::class, 'profile'])->name('auth.profile');
+
+// AUTH middleware
+Route::middleware('auth')->group(function () {
+    Route::get('/jobs/create', [JobController::class, 'create'])->name('jobs.create');
+    Route::post('/jobs', [JobController::class, 'store'])->name('jobs.store');
+    Route::get('/jobs/manage', [JobController::class, 'manage'])->name('jobs.manage');
+});

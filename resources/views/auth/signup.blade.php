@@ -67,6 +67,28 @@
                 </div>
 
     
+                <!-- Role -->
+                <div class="mb-4">
+                    <label for="role" class="block text-sm font-medium text-primary mb-2">
+                        Choose Your Role
+                    </label>
+                    <div class="relative">
+                        <select id="role" name="role" required
+                            class="block w-full rounded-lg bg-secondary/70 text-white py-2 px-4 focus:ring-2 focus:ring-accent ring-2 ring-primary focus:outline-none appearance-none shadow-md">
+                            <option class="text-gray-800" value="job_seeker">Job Seeker</option>
+                            <option class="text-gray-800" value="admin">Admin</option>
+                        </select>
+                        <!-- dropdown icon -->
+                        <div class="pointer-events-none absolute inset-y-0 right-3 flex items-center text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                 stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                      d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Submit -->
                 <button type="submit"
                         class="w-full py-3 bg-accent text-primary font-semibold rounded-lg shadow-md hover:bg-accent/90 transition">
