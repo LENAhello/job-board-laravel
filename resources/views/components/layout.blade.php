@@ -16,24 +16,20 @@
         @auth
         <header>
             <nav class="bg-[#5B3751] shadow-md">
-                <div class="flex justify-between px-6 py-3">
+                <div class="flex justify-between px-6 py-3 items-center">
                     <div>
                         <x-nav-links :active="request()->routeIs('jobs.index')" href="{{ route('jobs.index') }}">
                             All Jobs
                         </x-nav-links>
-                        <x-nav-links :active="request()->routeIs('jobs.create')" href="{{ route('jobs.create') }}">
-                            Create New Job
-                        </x-nav-links>
                     </div>
-                    <div>
-                        <a href="{{ route('auth.profile') }}">
+                    <div class="flex gap-5 items-center">
+                        <a href="{{ route('auth.profile') }}"
+                            class="text-white underline hover:text-shadow-secondary hover:text-shadow-md/30">
                             {{ auth()->user()->name }}
                         </a>
-                    </div>
-                    <div>
                         <form action="{{ route('auth.logout')}}" method="POST">
                             @csrf
-                            <button>logout</button>
+                            <button class="bg-white rounded-lg text-primary py-2 px-4 font-semibold cursor-pointer">logout</button>
                         </form>
                     </div>
                 </div>

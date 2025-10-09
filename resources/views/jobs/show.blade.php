@@ -34,6 +34,8 @@
             <p class="text-lg text-gray-600">{{ $job->company }}</p>
             <p class="text-xs text-gray-600">Posted By: <span class="italic">{{ $job->user->name }}</span></p>
         </div>
+
+        @if (auth()->user()->id === $job->user_id)
         <div class="flex space-x-2 mt-1">
             <!-- Edit Button -->
             <a href="{{ route('jobs.edit', $job->id) }}"
@@ -68,6 +70,7 @@
                 </button>
             </form>
         </div>
+        @endif
     </div>
 
     <!-- Job Meta Info -->
