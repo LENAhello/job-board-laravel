@@ -74,7 +74,7 @@
                     </label>
                     <div class="relative">
                         <select id="role" name="role" required
-                            class="block w-full rounded-lg bg-secondary/70 text-white py-2 px-4 focus:ring-2 focus:ring-accent ring-2 ring-primary focus:outline-none appearance-none shadow-md">
+                            class="block w-full rounded-lg bg-secondary/70 text-white py-2 px-4 focus:ring-2 focus:ring-primary focus:outline-none appearance-none shadow-md">
                             <option class="text-gray-800" value="job_seeker">Job Seeker</option>
                             <option class="text-gray-800" value="admin">Admin</option>
                         </select>

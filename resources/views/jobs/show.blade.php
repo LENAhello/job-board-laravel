@@ -32,6 +32,7 @@
         <div>
             <h1 class="text-2xl font-bold text-gray-900">{{ $job->title }}</h1>
             <p class="text-lg text-gray-600">{{ $job->company }}</p>
+            <p class="text-xs text-gray-600">Posted By: <span class="italic">{{ $job->user->name }}</span></p>
         </div>
         <div class="flex space-x-2 mt-1">
             <!-- Edit Button -->
@@ -78,7 +79,7 @@
             Category: {{ $job->category->name }}
         </a>
         <span>
-            Posted: {{ $job->posted_at}}
+            Posted At: {{ $job->posted_at}}
         </span>
     </div>
 

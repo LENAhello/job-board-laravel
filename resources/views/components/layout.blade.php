@@ -27,8 +27,14 @@
                     </div>
                     <div>
                         <a href="{{ route('auth.profile') }}">
-                            profile
+                            {{ auth()->user()->name }}
                         </a>
+                    </div>
+                    <div>
+                        <form action="{{ route('auth.logout')}}" method="POST">
+                            @csrf
+                            <button>logout</button>
+                        </form>
                     </div>
                 </div>
             </nav>

@@ -73,6 +73,9 @@ class AuthController extends Controller
 
     public function profile()
     {
-        return view('auth.profile');
+        $user = auth()->user();
+        // Eager load relationships
+        $user->load(['jobs']);
+        return view('auth.profile', compact('user'));
     }
 }

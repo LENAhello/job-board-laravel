@@ -42,6 +42,8 @@ class JobController extends Controller
             'category_id' => 'required|exists:categories,id'
         ]);
 
+        $validated['user_id'] = auth()->id();
+
         // Save to DB
         $job = Job::create($validated);
 
