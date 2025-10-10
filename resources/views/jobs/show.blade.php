@@ -98,13 +98,15 @@
         {{$job->description}}
     </div>
 
-    <!-- Apply Button Hello -->
-    {{-- <div class="mt-6">
-        <a href="{{ route('jobs.apply', $job->id) }}"
-           class="inline-block px-6 py-3 bg-indigo-600 text-white font-medium rounded-xl shadow hover:bg-indigo-700 transition">
-           Apply Now
-        </a>
-    </div> --}}
+    <!-- Apply -->
+    @if (auth()->user()->role === 'job_seeker')
+    <div>
+        <button type="submit"
+                class="w-full px-4 py-2 font-bold rounded-lg bg-primary/80 hover:bg-primary text-white transition">
+            Apply for this Job
+        </button>
+    </div>
+    @endif
 
 </div>
 </x-layout>

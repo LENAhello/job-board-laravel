@@ -24,5 +24,13 @@ Route::get('/profile', [AuthController::class, 'profile'])->name('auth.profile')
 // AUTH middleware
 Route::middleware('auth')->group(function () {
     Route::resource('jobs', JobController::class);
+});
+
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/jobs/create', [JobController::class, 'create'])->name('jobs.create');
+    Route::post('/jobs', [JobController::class, 'store'])->name('jobs.store');
+    Route::get('/jobs/{job}/edit', [JobController::class, 'edit'])->name('jobs.edit');
+    Route::put('/jobs/{job}', [JobController::class, 'update'])->name('jobs.update');
+    Route::delete('/jobs/{job}', [JobController::class, 'destroy'])->name('jobs.destroy');
     Route::get('/jobs/manage', [JobController::class, 'manage'])->name('jobs.manage');
 });

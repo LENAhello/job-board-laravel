@@ -5,10 +5,14 @@
             <div class="text-start">
                 <h1 class="text-2xl font-bold text-primary">Welcome, {{ $user->name }}</h1>
             </div>
-            <a href="{{ route('jobs.create') }}"
-                class="bg-primary/20 text-primary p-2 rounded-lg font-semibold">
-                Create New Job
-            </a>
+            @auth
+                @if(auth()->user()->role === 'admin')
+                    <a href="{{ route('jobs.create') }}"
+                        class="bg-primary/20 text-primary p-2 rounded-lg font-semibold">
+                        Create New Job
+                    </a>
+                @endif
+            @endauth
         </div>
 
         {{-- Jobs posted by user --}}
